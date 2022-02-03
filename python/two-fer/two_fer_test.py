@@ -1,8 +1,6 @@
 import unittest
 
-from two_fer import (
-    two_fer,
-)
+from two_fer import two_fer
 
 # Tests adapted from `problem-specifications//canonical-data.json`
 
