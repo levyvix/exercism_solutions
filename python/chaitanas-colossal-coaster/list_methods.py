@@ -77,10 +77,3 @@ def sorted_names(queue):
     :return: list - copy of the queue in alphabetical order.
     """
     return sorted(queue)
-
-
-print(add_me_to_the_queue(express_queue=["Tony", "Bruce"], normal_queue=[
-    "RobotGuy", "WW"], ticket_type=0, person_name="RichieRich"))
-
-print(add_me_with_my_friends(
-    ['Natasha', 'Steve', 'Tchalla', 'Wanda', 'Rocket'], 0, 'Bucky'))
