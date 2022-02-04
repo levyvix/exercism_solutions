@@ -1,5 +1,27 @@
-import numpy as np
-from sympy import re
+import math
+import functools
+
+
+def percentile(N, percent, key=lambda x: x):
+    """
+    Find the percentile of a list of values.
+
+    @parameter N - is a list of values. Note N MUST BE already sorted.
+    @parameter percent - a float value from 0.0 to 1.0.
+    @parameter key - optional key function to compute value from each element of N.
+
+    @return - the percentile of the values
+    """
+    if not N:
+        return None
+    k = (len(N)-1) * percent
+    f = math.floor(k)
+    c = math.ceil(k)
+    if f == c:
+        return key(N[int(k)])
+    d0 = key(N[int(f)]) * (c-k)
+    d1 = key(N[int(c)]) * (k-f)
+    return d0+d1
 
 
 def round_scores(student_scores):
@@ -43,8 +65,13 @@ def letter_grades(highest):
              86 <= "A" <= 100
     """
 
-    return (np.percentile(
-        np.arange(40, highest+1), np.array([0, 25, 50, 75])) + 1).astype(int).tolist()
+    percentiles = [
+        percentile(list(range(40, highest + 1)), i / 100)
+        for i in [0, 25, 50, 75]
+    ]
+
+    # add 1 to each percentile to make it inclusive
+    return [int(p + 1) for p in percentiles]
 
 
 def student_ranking(student_scores, student_names):
@@ -73,7 +100,3 @@ def perfect_score(student_info):
         if student[1] == 100:
             return student
     return []
-
-
-print(perfect_score(student_info=[
-      ["Charles", 90], ["Tony", 80], ["Alex", 100]]))
