@@ -1,6 +1,5 @@
 def get_coordinate(record):
     """
-
     :param record: tuple - a (treasure, coordinate) pair.
     :return: str - the extracted map coordinate.
     """
@@ -10,7 +9,6 @@ def get_coordinate(record):
 
 def convert_coordinate(coordinate):
     """
-
     :param coordinate: str - a string map coordinate
     :return:  tuple - the string coordinate seperated into its individual components.
     """
@@ -20,7 +18,6 @@ def convert_coordinate(coordinate):
 
 def compare_records(azara_record, rui_record):
     """
-
     :param azara_record: tuple - a (treasure, coordinate) pair.
     :param rui_record: tuple - a (location, coordinate, quadrant) trio.
     :return: bool - True if coordinates match, False otherwise.
@@ -34,7 +31,6 @@ def compare_records(azara_record, rui_record):
 
 def create_record(azara_record, rui_record):
     """
-
     :param azara_record: tuple - a (treasure, coordinate) pair.
     :param rui_record: tuple - a (location, coordinate, quadrant) trio.
     :return:  tuple - combined record, or "not a match" if the records are incompatible.
@@ -47,18 +43,9 @@ def create_record(azara_record, rui_record):
 
 def clean_up(combined_record_group):
     """
-
     :param combined_record_group: tuple of tuples - everything from both participants.
     :return: string of tuples separated by newlines - everything "cleaned". Excess coordinates and information removed.
     """
     return "".join(
         f"{c[:1] + c[2:]}\n" for c in combined_record_group
     )
-
-
-print(clean_up((
-    ('Brass Spyglass', '4B', 'Abandoned Lighthouse', ('4', 'B'), 'Blue'),
-    ('Vintage Pirate Hat', '7E', 'Quiet Inlet (Island of Mystery)', ('7', 'E'), 'Orange'),
-    ('Crystal Crab', '6A', 'Old Schooner', ('6', 'A'), 'Purple')
-))
-)
