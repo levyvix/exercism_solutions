@@ -1,6 +1,3 @@
-
-# TODO convert np mean to mean function
-
 def mean(hand):
     """
 
