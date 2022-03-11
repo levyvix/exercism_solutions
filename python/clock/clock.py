@@ -19,10 +19,10 @@ class Clock:
             self.minute = self.minute - 60
             self.hour += 1
             if self.hour >= 24:
-                self.hour = self.hour - 24
+                self.hour -= 24
 
     def __repr__(self):
-        return 'Clock({}, {})'.format(self.hour, self.minute)
+        return f'Clock({self.hour}, {self.minute})'
 
     def __str__(self):
         """Return string representation of clock
@@ -73,7 +73,7 @@ class Clock:
             self.minute = self.minute - 60
             self.hour += 1
             if self.hour >= 24:
-                self.hour = self.hour - 24
+                self.hour -= 24
 
         return Clock(self.hour, self.minute)
 
@@ -106,7 +106,7 @@ class Clock:
             self.minute = self.minute - 60
             self.hour += 1
             if self.hour >= 24:
-                self.hour = self.hour - 24
+                self.hour -= 24
 
         return Clock(self.hour, self.minute)
 

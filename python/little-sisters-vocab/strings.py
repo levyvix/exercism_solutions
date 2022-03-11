@@ -11,7 +11,7 @@ def add_prefix_un(word):
     returns a new word with an 'un' prefix.
     """
 
-    return 'un' + word
+    return f'un{word}'
 
 
 def make_word_groups(vocab_words):
@@ -66,7 +66,7 @@ def adjective_to_verb(sentence, index):
     string[index] = string[index].translate(
         str.maketrans('', '', st.punctuation))
 
-    return string[index] + 'en'
+    return f'{string[index]}en'
 
 
 print(make_word_groups(['en', 'close', 'joy', 'lighten']))
